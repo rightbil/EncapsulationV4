@@ -16,12 +16,22 @@ public class Main {
         b.setDescription("Java programming book");
         System.out.println(b.toString());
 
-        Book c = new Book();
-        c.setCode("Book 8910");
-        c.setAuthor("Dave W.");
-        c.setPrice(49.99);
-        c.setDescription("Python programming book");
-        System.out.println(c.toString());
+        Book testBookOne = new Book();
+       // testBookOne.setCode("Book 8910");
+      // testBookOne.setPrice(49.99);
+       // testBookOne.setDescription("Python programming book");
+        testBookOne.setAuthor("Dave W.");
+        testBookOne.setPages(80);
+        System.out.println(testBookOne.toString());
+
+
+        Book testBookTwo = new Book();
+        //testBookTwo.setCode("Book 8910");
+        //testBookTwo.setPrice(49.99);
+        //testBookTwo.setDescription("Python programming book");
+        testBookTwo.setAuthor("Dave W.");
+        testBookOne.setPages(80);
+        System.out.println(testBookTwo.toString());
 
         Software s = new Software();
         s.setCode("Program1234");
@@ -30,6 +40,10 @@ public class Main {
         s.setOs("Windows");
         s.setProgrammer("Fi");
         System.out.println(s.toString());
+
+        // testing
+
+        System.out.println(testBookOne.equals(testBookTwo));
 
 
 

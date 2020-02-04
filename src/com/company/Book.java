@@ -3,8 +3,6 @@ package com.company;
 import java.util.Objects;
 
 public class Book extends Product {
-    private final int xcanbeanyThing =100;
-
     private String author;
     private int pages;
 
@@ -26,9 +24,9 @@ public class Book extends Product {
 
 
     public Book() {
-        super();
-        this.author = "Bililign";
-        this.pages = 80;
+        //super();
+        //this.author = "Bililign";
+        //this.pages = 80;
 
     }
 

@@ -1,6 +1,8 @@
 package com.company;
 import java.lang.*;
-public class Product {
+import java.util.Objects;
+
+public abstract class Product {
 
     private String code;
     private String description;
@@ -55,24 +57,35 @@ public class Product {
 
     @Override
     public boolean equals(Object o) {
-        // condition 1
-        if(o==this) return true;
-        // condition 2
+        // null check
+        if(o==null){return  false;}
+        //instance check
+        if(o==this) {return true;};
+
         if(!(o instanceof Product)){ return false;}
+//
+//        if ((o instanceof Product) && (((Product) o).getValue() == this.value)) {
+//            return true;
+//        } else {
+//            return false;
+//        }
         // condition 3
         Product p =  (Product) o;
-        return o.equals(p.code) &&
-                o.equals(p.description) &&
-                price==p.price;
+        return p.code.equals(code) &&
+                p.description.equals(description) &&
+                p.price==price;
     }
     @Override
     public int hashCode() {
-        //return super.hashCode();
+        //TODO: overriding the equal method needs revision
+
         int result= 17;
         result=  31 * result+ code.hashCode();
-        result = 31*result+ description.hashCode();
-        result=  31* result + (int)price;
-        return  result;
+        result = 31 * result+ description.hashCode();
+        result=  31 * result + (int)price;
+        return result; // old ways
+
+       // return  Objects.hash(code,description,price);
     }
 
     private String getFormattedPrice(double price) {
