@@ -1,4 +1,5 @@
 package com.company;
+import java.lang.*;
 public class Product {
 
     private String code;
@@ -50,11 +51,33 @@ public class Product {
                 "Description: " + description + "\n" +
                 "Price: " + this.getFormattedPrice(price) + "\n";
     }
+// focus of this assignment is to override the
+
+    @Override
+    public boolean equals(Object o) {
+        // condition 1
+        if(o==this) return true;
+        // condition 2
+        if(!(o instanceof Product)){ return false;}
+        // condition 3
+        Product p =  (Product) o;
+        return o.equals(p.code) &&
+                o.equals(p.description) &&
+                price==p.price;
+    }
+    @Override
+    public int hashCode() {
+        //return super.hashCode();
+        int result= 17;
+        result=  31 * result+ code.hashCode();
+        result = 31*result+ description.hashCode();
+        result=  31* result + (int)price;
+        return  result;
+    }
 
     private String getFormattedPrice(double price) {
         // Use the NumberFormat class to format the price to 2 decimal places
         return "$%.2f";
-
     }
 
     // Create public access for the count variable

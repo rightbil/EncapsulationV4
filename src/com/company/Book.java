@@ -1,6 +1,9 @@
 package com.company;
 
+import java.util.Objects;
+
 public class Book extends Product {
+    private final int xcanbeanyThing =100;
 
     private String author;
     private int pages;
@@ -34,6 +37,21 @@ public class Book extends Product {
         return "Author: " + author + "\n" +
                 "Pages: " + pages + "\n" +
                 "Price: "  + getPrice();
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Book)) return false;
+        if (!super.equals(o)) return false;
+        Book book = (Book) o;
+        return getPages() == book.getPages() &&
+                Objects.equals(getAuthor(), book.getAuthor());
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(super.hashCode(), getAuthor(), getPages());
     }
 }
 
